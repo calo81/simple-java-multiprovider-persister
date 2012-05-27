@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="158" started-at="2012-05-27T19:38:06Z" finished-at="2012-05-27T19:38:06Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="158" started-at="2012-05-27T19:38:06Z" finished-at="2012-05-27T19:38:06Z">
+      <class name="org.easytechs.recordpersister.TradeTickMongoPersisterITest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:org.easytechs.recordpersister.TradeTickMongoPersisterITest@4f124609]" name="setup" is-config="true" duration-ms="112" started-at="2012-05-27T19:38:06Z" finished-at="2012-05-27T19:38:06Z">
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="shouldPersistOneItem()[pri:0, instance:org.easytechs.recordpersister.TradeTickMongoPersisterITest@4f124609]" name="shouldPersistOneItem" duration-ms="30" started-at="2012-05-27T19:38:06Z" finished-at="2012-05-27T19:38:06Z">
+        </test-method> <!-- shouldPersistOneItem -->
+      </class> <!-- org.easytechs.recordpersister.TradeTickMongoPersisterITest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
