@@ -12,16 +12,21 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
 
 public class MongoAppenderUTest extends AbstractTimedTest {
+	/**
+	 */
 	private MongoAppender testObj;
-	private static final String HOST = "localhost";
+	private static final String HOST = "127.0.0.1";
 	private static final String PORT = "27017";
 	private static final String DB = "test-db";
 	private static final String COLLECTION = "ticks";
 
+	/**
+	 */
 	@Mock
-	private RecordGenerator<BasicDBObject> recordGenerator;
+	private RecordGenerator<DBObject> recordGenerator;
 
 	@BeforeMethod
 	public void setup() throws Exception {
@@ -30,18 +35,17 @@ public class MongoAppenderUTest extends AbstractTimedTest {
 		testObj.setRecordGenerator(recordGenerator);
 	}
 
-	@Test
+	@Test(invocationCount=10)
 	public void shouldPersistSimpleObjects() {
+		Mockito.when(recordGenerator.generate(Mockito.any(NormalizedMessage.class))).thenReturn(createBasicDbObjectWithIndexSomewhere(1));
 		doTimed(new IndexedRunnable() {
 			@Override
 			public void run(int index) throws Exception {
-				NormalizedMessage message = new NormalizedMessage();
-				Mockito.when(recordGenerator.generate(message)).thenReturn(
-						createBasicDbObjectWithIndexSomewhere(index));
+				NormalizedMessage message = new NormalizedMessage();			
 				testObj.append(message);
 			}
 
-		}, 2000);
+		}, 20000);
 	}
 
 	private BasicDBObject createBasicDbObjectWithIndexSomewhere(int index) {

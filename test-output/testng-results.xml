@@ -2,16 +2,38 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="158" started-at="2012-05-27T19:38:06Z" finished-at="2012-05-27T19:38:06Z">
+  <suite name="Default suite" duration-ms="603" started-at="2012-06-01T10:18:44Z" finished-at="2012-06-01T10:18:45Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="158" started-at="2012-05-27T19:38:06Z" finished-at="2012-05-27T19:38:06Z">
-      <class name="org.easytechs.recordpersister.TradeTickMongoPersisterITest">
-        <test-method status="PASS" signature="setup()[pri:0, instance:org.easytechs.recordpersister.TradeTickMongoPersisterITest@4f124609]" name="setup" is-config="true" duration-ms="112" started-at="2012-05-27T19:38:06Z" finished-at="2012-05-27T19:38:06Z">
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="shouldPersistOneItem()[pri:0, instance:org.easytechs.recordpersister.TradeTickMongoPersisterITest@4f124609]" name="shouldPersistOneItem" duration-ms="30" started-at="2012-05-27T19:38:06Z" finished-at="2012-05-27T19:38:06Z">
-        </test-method> <!-- shouldPersistOneItem -->
-      </class> <!-- org.easytechs.recordpersister.TradeTickMongoPersisterITest -->
+    <test name="Default test" duration-ms="603" started-at="2012-06-01T10:18:44Z" finished-at="2012-06-01T10:18:45Z">
+      <class name="org.easytechs.recordpersister.integration.spring.FileCsvPersistenceWithSpring">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:org.easytechs.recordpersister.integration.spring.FileCsvPersistenceWithSpring@2f303a76]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="17" started-at="2012-06-01T10:18:44Z" finished-at="2012-06-01T10:18:44Z">
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:org.easytechs.recordpersister.integration.spring.FileCsvPersistenceWithSpring@2f303a76]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="549" started-at="2012-06-01T10:18:44Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2012-06-01T10:18:45Z">
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:org.easytechs.recordpersister.integration.spring.FileCsvPersistenceWithSpring@2f303a76]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2012-06-01T10:18:45Z" finished-at="2012-06-01T10:18:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.easytechs.recordpersister.integration.spring.FileCsvPersistenceWithSpring.shouldPersist()]]>
+              </value>
+            </param>
+          </params>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="shouldPersist()[pri:0, instance:org.easytechs.recordpersister.integration.spring.FileCsvPersistenceWithSpring@2f303a76]" name="shouldPersist" duration-ms="14" started-at="2012-06-01T10:18:45Z" finished-at="2012-06-01T10:18:45Z">
+        </test-method> <!-- shouldPersist -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:org.easytechs.recordpersister.integration.spring.FileCsvPersistenceWithSpring@2f303a76]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2012-06-01T10:18:45Z" finished-at="2012-06-01T10:18:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void org.easytechs.recordpersister.integration.spring.FileCsvPersistenceWithSpring.shouldPersist()]]>
+              </value>
+            </param>
+          </params>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:org.easytechs.recordpersister.integration.spring.FileCsvPersistenceWithSpring@2f303a76]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2012-06-01T10:18:45Z" finished-at="2012-06-01T10:18:45Z">
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- org.easytechs.recordpersister.integration.spring.FileCsvPersistenceWithSpring -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

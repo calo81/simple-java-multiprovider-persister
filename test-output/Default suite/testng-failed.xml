@@ -3,12 +3,15 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)" preserve-order="true">
     <classes>
-      <class name="org.easytechs.recordpersister.recordgenerators.ToStringRecordGeneratorUTest">
+      <class name="org.easytechs.recordpersister.integration.spring.FileCsvPersistenceWithSpring">
         <methods>
-          <include name="shouldGenerateStringRecordBasedOnToString"/>
-          <include name="setup"/>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="springTestContextBeforeTestClass"/>
+          <include name="springTestContextPrepareTestInstance"/>
+          <include name="springTestContextAfterTestMethod"/>
+          <include name="shouldPersist"/>
         </methods>
-      </class> <!-- org.easytechs.recordpersister.recordgenerators.ToStringRecordGeneratorUTest -->
+      </class> <!-- org.easytechs.recordpersister.integration.spring.FileCsvPersistenceWithSpring -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

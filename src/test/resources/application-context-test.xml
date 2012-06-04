@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:amq="http://activemq.apache.org/schema/core"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xmlns:int-jms="http://www.springframework.org/schema/integration/jms"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:groovy="http://www.w3.org/1999/xhtml"
+       xmlns:stream="http://www.springframework.org/schema/integration/stream"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:persister="http://www.paddypower.com/schema/persister"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://activemq.apache.org/schema/core 
+		http://activemq.apache.org/schema/core/activemq-core-5.5.0.xsd
+		http://www.springframework.org/schema/integration
+		http://www.springframework.org/schema/integration/spring-integration-2.1.xsd
+		http://www.springframework.org/schema/integration/jms
+		http://www.springframework.org/schema/integration/jms/spring-integration-jms-2.1.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd 
+		http://www.springframework.org/schema/integration/stream 
+		http://www.springframework.org/schema/integration/stream/spring-integration-stream-2.0.xsd
+		http://www.paddypower.com/schema/persister
+		http://www.paddypower.com/schema/persister.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+ <persister:file-csv-persister id="fileCsvPersister" rootDir="/tmp/springified" filePrefix="file" fileSuffix=".tick" rollStrategy="timeBased" beanProperties="symbol,value,date" buffered="true" queued="true"/>
+   
+
+</beans>

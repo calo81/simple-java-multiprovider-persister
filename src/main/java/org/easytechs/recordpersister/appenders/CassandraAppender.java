@@ -13,13 +13,20 @@ import org.apache.thrift.transport.TTransport;
 import org.easytechs.recordpersister.appenders.cassandra.CassandraRow;
 
 
+
 public class CassandraAppender extends AbstractAppender<CassandraRow>{
 
 
+	/**
+	 */
 	private Cassandra.Client client;
+	/**
+	 */
 	private ColumnParent columnParent ;
+	/**
+	 */
 	private TTransport tr;
-	private static final ConsistencyLevel CL = ConsistencyLevel.ONE;
+	private static final ConsistencyLevel CL = ConsistencyLevel.ANY;
 
 	public CassandraAppender(String host, int port, String keyspace, String columnParent) throws Exception{
 		tr = new TSocket(host, port);

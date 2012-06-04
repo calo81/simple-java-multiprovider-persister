@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.paddypower.com/schema/persister" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"  targetNamespace="http://www.paddypower.com/schema/persister">
+  <xs:element name="mongo-document-persister">
+    <xs:complexType>
+      <xs:attribute name="beanProperties" use="required"/>
+      <xs:attribute name="collection" use="required" type="xs:NCName"/>
+      <xs:attribute name="db" use="required" type="xs:NCName"/>
+      <xs:attribute name="host" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+      <xs:attribute name="port" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="mongo-csv-persister">
+    <xs:complexType>
+      <xs:attribute name="beanProperties" use="required"/>
+      <xs:attribute name="collection" use="required" type="xs:NCName"/>
+      <xs:attribute name="db" use="required" type="xs:NCName"/>
+      <xs:attribute name="host" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+      <xs:attribute name="port" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="file-csv-persister">
+    <xs:complexType>
+      <xs:attribute name="beanProperties" use="required"/>
+      <xs:attribute name="filePrefix" use="required" type="xs:NCName"/>
+      <xs:attribute name="fileSuffix" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+      <xs:attribute name="rollStrategy" use="required" type="xs:NCName"/>
+      <xs:attribute name="rootDir" use="required"/>
+      <xs:attribute name="buffered" type="xs:NCName"/>
+      <xs:attribute name="queued" type="xs:NCName"/>
+      <xs:attribute name="zip" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="file-tostring-persister">
+    <xs:complexType>
+      <xs:attribute name="filePrefix" use="required" type="xs:NCName"/>
+      <xs:attribute name="fileSuffix" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+      <xs:attribute name="rollStrategy" use="required" type="xs:NCName"/>
+      <xs:attribute name="rootDir" use="required"/>
+      <xs:attribute name="buffered" type="xs:NCName"/>
+      <xs:attribute name="queued" type="xs:NCName"/>
+      <xs:attribute name="zip" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+   <xs:element name="redis-hash-persister">
+    <xs:complexType>
+      <xs:attribute name="beanProperties" use="required"/>
+      <xs:attribute name="host" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="list" use="required" type="xs:NCName"/>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+   <xs:element name="redis-tostring-persister">
+    <xs:complexType>
+      <xs:attribute name="host" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="list" use="required" type="xs:NCName"/>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="redis-csv-persister">
+    <xs:complexType>
+      <xs:attribute name="beanProperties" use="required"/>
+      <xs:attribute name="host" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="list" use="required" type="xs:NCName"/>
+      <xs:attribute name="id" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,23 +1,40 @@
 package org.easytechs.recordpersister;
 
-public class GenericPersister<T extends Object> implements Persister<T>{
+import org.apache.log4j.Logger;
 
-	private NormalizedMessageTransformer<T> normalizedMessageTransformer;
+public class GenericPersister<T extends Object> implements Persister<T> {
+
+	/**
+	 */
+	private MessageNormalizer<T> normalizedMessageTransformer;
+	/**
+	 */
 	private Appender appender;
+
+	private static Logger LOG = Logger.getLogger(GenericPersister.class);
 
 	@Override
 	public void persist(T object) {
-		NormalizedMessage normalizedMessage = normalizedMessageTransformer.transform(object);
-		appender.append(normalizedMessage);
-		
+		try {
+			NormalizedMessage normalizedMessage = normalizedMessageTransformer
+					.transform(object);
+			appender.append(normalizedMessage);
+		} catch (Exception e) {
+			LOG.error("Unable to persist message " + object, e);
+		}
+
 	}
 
+	/**
+	 * @param appender
+	 */
 	public void setAppender(Appender appender) {
-		this.appender=appender;
+		this.appender = appender;
 	}
 
-	public void setNormalizedMessageTransformer(NormalizedMessageTransformer<T> normalizedMessageTransformer) {
-		this.normalizedMessageTransformer=normalizedMessageTransformer;
+	public void setNormalizedMessageTransformer(
+			MessageNormalizer<T> normalizedMessageTransformer) {
+		this.normalizedMessageTransformer = normalizedMessageTransformer;
 	}
 
 }

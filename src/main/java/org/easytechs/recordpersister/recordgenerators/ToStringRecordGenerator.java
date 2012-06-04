@@ -5,15 +5,15 @@ import org.easytechs.recordpersister.RecordGenerator;
 
 public class ToStringRecordGenerator implements RecordGenerator<String> {
 
+
 	private String key;
+	
+	public ToStringRecordGenerator(String keyInNormalized){
+		this.key=keyInNormalized;
+	}
 
 	@Override
 	public String generate(NormalizedMessage message) {
 		return message.getValue(key).toString();
 	}
-
-	public void setKeyInNormalized(String key) {
-		this.key = key;
-	}
-
 }

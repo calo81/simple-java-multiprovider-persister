@@ -1,6 +1,6 @@
 package org.easytechs.recordpersister.appenders;
 
-import java.util.Set;
+import java.util.List;
 
 import org.easytechs.recordpersister.AbstractTimedTest;
 import org.easytechs.recordpersister.IndexedRunnable;
@@ -17,13 +17,21 @@ import org.testng.annotations.Test;
 
 import redis.clients.jedis.Jedis;
 
-public class RedisAppenderUTest extends AbstractTimedTest{
-	private RedisAppender testObj;
-	private static final String HOST = "localhost";
 
+public class RedisAppenderUTest extends AbstractTimedTest{
+	private static final String KEY = "tickcc";
+	/**
+	 */
+	private RedisAppender testObj;
+	private static final String HOST = "127.0.0.1";
+
+	/**
+	 */
 	@Mock
 	private RecordGenerator<KeyValue> recordGenerator;
 
+	/**
+	 */
 	private Jedis jedis;
 
 	@BeforeMethod
@@ -33,21 +41,21 @@ public class RedisAppenderUTest extends AbstractTimedTest{
 		testObj.setRecordGenerator(recordGenerator);
 		jedis = new Jedis(HOST);
 		jedis.connect();
+		jedis.del(KEY);
 	}
 
-	@Test
+	@Test(invocationCount=10)
 	public void shouldPersistSimpleRequest() {
+		Mockito.when(recordGenerator.generate(Mockito.any(NormalizedMessage.class))).thenReturn(new KeyValue(KEY, "UK100SS"));
 		doTimed(new IndexedRunnable() {			
 			@Override
 			public void run(int i) {
 				NormalizedMessage message = new NormalizedMessage();
-				KeyValue keyValue = new KeyValue("tick", "UK100SS");
-				Mockito.when(recordGenerator.generate(message))
-						.thenReturn(keyValue);
+				//new KeyValue(KEY, "UK100SS");		
 				testObj.append(message);
 			}
-		}, 2000);
-		Set<String> values = jedis.smembers("tick");
+		}, 20000);
+		List<String> values = jedis.lrange(KEY,0,1);
 		Assert.assertEquals(values.iterator().next(), "UK100SS");
 		testObj.close();
 		jedis.disconnect();

@@ -18,6 +18,7 @@ import org.mockito.MockitoAnnotations;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+
 public class CassandraAppenderUTest extends AbstractTimedTest{
 	private static final Logger LOG = Logger.getLogger(CassandraAppenderUTest.class);
 
@@ -28,8 +29,12 @@ public class CassandraAppenderUTest extends AbstractTimedTest{
 	private static final String KEYSPACE = "DEMO";
 	private static final String COLUMN_PARENT = "RawTicks";
 
+	/**
+	 */
 	private CassandraAppender testObj;
 
+	/**
+	 */
 	@Mock
 	private RecordGenerator<CassandraRow> recordGenerator;
 
@@ -40,17 +45,17 @@ public class CassandraAppenderUTest extends AbstractTimedTest{
 		testObj.setRecordGenerator(recordGenerator);
 	}
 
-	@Test
+	@Test(invocationCount=10)
 	public void shouldStoreSimpleRequest() throws Exception {
-		doTimed(new IndexedRunnable() {
-			
+		Mockito.when(recordGenerator.generate(Mockito.any(NormalizedMessage.class))).thenReturn(createCassandraRow(1));
+		doTimed(new IndexedRunnable() {		
 			@Override
 			public void run(int i) throws Exception{
 				NormalizedMessage message = new NormalizedMessage();
-				Mockito.when(recordGenerator.generate(message)).thenReturn(createCassandraRow(i));
+				createCassandraRow(i);
 				testObj.append(message);
 			}
-		}, 2000);
+		}, 20000);
 		testObj.close();
 	}
 

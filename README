@@ -1,0 +1,8 @@
+For using in Spring you have these availabl persisters
+
+    <persister:mongo-document-persister id="persister" host="127.0.0.1" port="27017" db="test-db" collection="ticksfromsystem" beanProperties="symbol,price,tradeTime"/>
+    <persister:file-csv-persister id="persister" rootDir="/tmp" filePrefix="file" fileSuffix=".tick" rollStrategy="yearMonthDay" beanProperties="symbol,price,tradeTime" buffered="true"/>
+    <persister:redis-hash-persister id="persister" host="127.0.0.1" list="tickess" beanProperties="symbol,price,tradeTime"/> 
+    <persister:redis-tostring-persister id="persister" host="127.0.0.1" list="tickeplain"/>
+    <persister:file-tostring-persister id="persisterRawMessage" rootDir="/tmp/rawticks" filePrefix="file" fileSuffix=".tick" rollStrategy="timeBased" buffered="true" queued="true"/>
+    
