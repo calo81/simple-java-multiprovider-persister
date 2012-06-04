@@ -33,6 +33,16 @@
 	        <artifactId>riak-client</artifactId>
 	        <version>1.0.5</version>
 	    </dependency>
+	     <dependency>
+	        <groupId>com.google.code.jcouchdb</groupId>
+	        <artifactId>jcouchdb</artifactId>
+	        <version>0.11.0-1</version>
+	    </dependency>
+	    <dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.2</version>
+		</dependency>
 		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>

@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)" preserve-order="true">
     <classes>
-      <class name="org.easytechs.recordpersister.appenders.RiakAppenderUTest">
+      <class name="org.easytechs.recordpersister.appenders.CouchDBAppenderUTest">
         <methods>
-          <include name="setup"/>
           <include name="shouldPersistSimpleRequest"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- org.easytechs.recordpersister.appenders.RiakAppenderUTest -->
+      </class> <!-- org.easytechs.recordpersister.appenders.CouchDBAppenderUTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
